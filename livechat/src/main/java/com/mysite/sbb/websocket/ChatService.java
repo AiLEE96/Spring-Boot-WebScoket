@@ -1,4 +1,4 @@
-package com.sample.stomp.service;
+package com.mysite.sbb.websocket;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,10 +9,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.sample.stomp.model.ChatRoom;
-import com.sample.stomp.entity.repository;
-import com.sample.stomp.entity.Member;
+import com.mysite.sbb.user.*;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -23,13 +20,13 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class ChatService {
     @Autowired
-    repository memberRepository;
+    UserRepository memberRepository;
 
-    public void save(Member member) {
+    public void save(SiteUser member) {
         memberRepository.save(member);
     }
     
-    public Optional<Member> findById(String id) {
+    public Optional<SiteUser> findById(Long id) {
         return memberRepository.findById(id);
     }
 
@@ -51,9 +48,9 @@ public class ChatService {
     }
 
     //채팅방 하나 불러오기
-    /*public ChatRoom findById(String roomId) {
+    public ChatRoom findByOneRoom(String roomId) {
         return chatRooms.get(roomId);
-    }*/
+    }
 
     //채팅방 생성
     public ChatRoom createRoom(String name) {

@@ -1,6 +1,5 @@
-package com.sample.stomp.controller;
+package com.mysite.sbb.websocket;
 
-import com.sample.stomp.model.ChatMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class MessageController {
-
     private final SimpMessageSendingOperations sendingOperations;
 
     @MessageMapping("/chat/message")

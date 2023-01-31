@@ -1,17 +1,13 @@
-package com.sample.stomp.controller;
-
-import com.sample.stomp.model.ChatRoom;
-import com.sample.stomp.service.ChatService;
+package com.mysite.sbb.websocket;
 
 import jakarta.servlet.http.HttpSession;
-
-import com.sample.stomp.entity.Member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import com.mysite.sbb.user.*;
 
 import java.util.List;
 
@@ -24,7 +20,7 @@ public class ChatRoomController {
     @Autowired
 	ChatService memberService;
 
-
+    /*
     //로그인 입력 화면
     @GetMapping("/index")
     public String index(Member member) {
@@ -32,8 +28,8 @@ public class ChatRoomController {
     }
 
     @PostMapping("/join")
-	public String loginPost(HttpSession session, Member member) {
-		Member memberNow = memberService.findById(member.getId()).get();
+	public String loginPost(HttpSession session, SiteUser member) {
+		SiteUser memberNow = memberService.findById(member.getId()).get();
 
 		// 로그인 성공
 		if (memberNow.getPw().equals(member.getPw())) {
@@ -49,6 +45,8 @@ public class ChatRoomController {
 		}
 
 	}
+    
+
     //회원 가입 및 조회
 	@GetMapping("/join")
 	public String joinGet(Member member) {
@@ -63,7 +61,8 @@ public class ChatRoomController {
 
 		return "redirect:/chat/index";
 	}
-
+    */
+    
 	@GetMapping("/roomdetail")
 	public String chatGET(HttpSession session) {
 

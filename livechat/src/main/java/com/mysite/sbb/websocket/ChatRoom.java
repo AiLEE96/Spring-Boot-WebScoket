@@ -1,4 +1,4 @@
-package com.sample.stomp.model;
+package com.mysite.sbb.websocket;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

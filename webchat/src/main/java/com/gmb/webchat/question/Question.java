@@ -1,4 +1,4 @@
-package com.mysite.sbb.question;
+package com.gmb.webchat.question;
 
 import java.time.LocalDateTime;
 import java.util.List;

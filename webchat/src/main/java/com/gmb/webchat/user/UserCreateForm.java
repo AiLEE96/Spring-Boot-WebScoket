@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.gmb.webchat.user;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;

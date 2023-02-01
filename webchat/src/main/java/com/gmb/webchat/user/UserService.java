@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.gmb.webchat.user;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

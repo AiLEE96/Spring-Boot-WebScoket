@@ -1,4 +1,4 @@
-package com.mysite.sbb;
+package com.gmb.webchat;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

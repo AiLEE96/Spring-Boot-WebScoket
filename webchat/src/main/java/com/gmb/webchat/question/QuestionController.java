@@ -1,4 +1,4 @@
-package com.mysite.sbb.question;
+package com.gmb.webchat.question;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;

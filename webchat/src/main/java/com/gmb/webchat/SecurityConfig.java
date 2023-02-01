@@ -1,4 +1,4 @@
-package com.mysite.sbb;
+package com.gmb.webchat;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

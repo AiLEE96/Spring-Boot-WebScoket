@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.gmb.webchat.user;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;

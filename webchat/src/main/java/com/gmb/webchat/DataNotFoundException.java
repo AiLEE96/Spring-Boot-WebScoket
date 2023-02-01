@@ -1,4 +1,4 @@
-package com.mysite.sbb;
+package com.gmb.webchat;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

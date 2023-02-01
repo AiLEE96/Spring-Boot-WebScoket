@@ -62,7 +62,7 @@ public class ChatRoomController {
 		return "redirect:/chat/index";
 	}
     */
-    
+
 	@GetMapping("/roomdetail")
 	public String chatGET(HttpSession session) {
 

@@ -1,4 +1,4 @@
-package webChat.controller;
+package com.gmb.webchat.chat;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

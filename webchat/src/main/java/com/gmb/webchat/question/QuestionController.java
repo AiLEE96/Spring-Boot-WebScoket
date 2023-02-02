@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysite.sbb.answer.AnswerForm;
+import com.gmb.webchat.answer.AnswerForm;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -3,7 +3,7 @@ package com.gmb.webchat.question;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.mysite.sbb.answer.Answer;
+import com.gmb.webchat.answer.Answer;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

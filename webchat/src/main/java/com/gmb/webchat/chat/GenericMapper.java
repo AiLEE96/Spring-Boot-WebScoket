@@ -1,4 +1,4 @@
-package webChat.mapper;
+package com.gmb.webchat.chat;
 
 import org.mapstruct.BeanMapping;
 import org.mapstruct.MappingTarget;

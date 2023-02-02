@@ -1,4 +1,4 @@
-package webChat.Entity;
+package com.gmb.webchat.chat;
 
 import lombok.*;
 

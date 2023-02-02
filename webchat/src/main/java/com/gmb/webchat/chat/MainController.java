@@ -1,4 +1,4 @@
-package webChat.controller;
+package com.gmb.webchat.chat;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

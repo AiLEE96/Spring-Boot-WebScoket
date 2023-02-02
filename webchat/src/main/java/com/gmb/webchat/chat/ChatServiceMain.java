@@ -1,4 +1,4 @@
-package webChat.service.chatService;
+package com.gmb.webchat.chat;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

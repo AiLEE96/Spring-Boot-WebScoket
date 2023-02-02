@@ -1,4 +1,4 @@
-package webChat.controller;
+package com.gmb.webchat.chat;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import webChat.dto.ChatRoomMap;
-import webChat.service.chatService.ChatServiceMain;
-import webChat.dto.ChatRoomDto;
+
 import webChat.service.social.PrincipalDetails;
 
 import java.util.UUID;

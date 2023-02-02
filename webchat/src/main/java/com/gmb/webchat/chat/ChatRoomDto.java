@@ -1,4 +1,4 @@
-package webChat.dto;
+package com.gmb.webchat.chat;
 
 import com.sun.istack.NotNull;
 import lombok.*;

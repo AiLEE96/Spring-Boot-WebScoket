@@ -1,4 +1,5 @@
-package com.mysite.sbb.answer;
+package com.gmb.webchat.answer;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mysite.sbb.question.Question;
-import com.mysite.sbb.question.QuestionService;
+import com.gmb.webchat.question.Question;
+import com.gmb.webchat.question.QuestionService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

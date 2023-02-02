@@ -1,4 +1,5 @@
-package com.mysite.sbb.answer;
+package com.gmb.webchat.answer;
+
 
 import jakarta.validation.constraints.NotEmpty;
 

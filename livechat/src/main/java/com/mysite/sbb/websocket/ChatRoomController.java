@@ -1,105 +1,51 @@
 package com.mysite.sbb.websocket;
 
-import jakarta.servlet.http.HttpSession;
-
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.mysite.sbb.user.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
 
 @Controller
-@RequiredArgsConstructor
-@RequestMapping("/chat")
+@Slf4j
 public class ChatRoomController {
-    private final ChatService chatService;
 
+    // ChatService Bean 가져오기
     @Autowired
-	ChatService memberService;
-
-    /*
-    //로그인 입력 화면
-    @GetMapping("/index")
-    public String index(Member member) {
-        return "/chat/inedx";
-    }
-
-    @PostMapping("/join")
-	public String loginPost(HttpSession session, SiteUser member) {
-		SiteUser memberNow = memberService.findById(member.getId()).get();
-
-		// 로그인 성공
-		if (memberNow.getPw().equals(member.getPw())) {
-			session.setAttribute("memberId", member.getId());
-			System.out.println("로그인에 성공했습니다.");
-			return "redirect:/chat";
-		}
-
-		// 로그인 실패
-		else {
-			System.out.println("패스워드가 일치하지 않습니다.");
-			return "redirect:/";
-		}
-
-	}
-    
-
-    //회원 가입 및 조회
-	@GetMapping("/join")
-	public String joinGet(Member member) {
-		return "/chat/join";
-	}
-
-	@PostMapping("/index")
-	public String joinPost(Member member) {
-
-		memberService.save(member);
-		System.out.println(member + "가 가입되었습니다.");
-
-		return "redirect:/chat/index";
-	}
-    */
-
-	@GetMapping("/roomdetail")
-	public String chatGET(HttpSession session) {
-
-		System.out.println("@ChatController, chat GET()");
-
-		return "/chat/roomdetail";
-	}
+    private ChatService ChatService;
 
     // 채팅 리스트 화면
-    @GetMapping("/room")
-    public String rooms(Model model) {
-        return "/chat/room";
+    // / 로 요청이 들어오면 전체 채팅룸 리스트를 담아서 return
+    @GetMapping("/")
+    public String goChatRoom(Model model){
+
+        model.addAttribute("list", ChatService.findAllRoom());
+//        model.addAttribute("user", "hey");
+        log.info("SHOW ALL ChatList {}", ChatService.findAllRoom());
+        return "roomlist";
     }
-    // 모든 채팅방 목록 반환
-    @GetMapping("/rooms")
-    @ResponseBody
-    public List<ChatRoom> room() {
-        return chatService.findAllRoom();
-    }
+
     // 채팅방 생성
-    @PostMapping("/room")
-    @ResponseBody
-    public ChatRoom createRoom(@RequestParam String name) {
-        return chatService.createRoom(name);
+    // 채팅방 생성 후 다시 / 로 return
+    @PostMapping("/chat/createroom")
+    public String createRoom(@RequestParam String name, RedirectAttributes rttr) {
+        ChatRoom room = ChatService.createChatRoom(name);
+        log.info("CREATE Chat Room {}", room);
+        rttr.addFlashAttribute("roomName", room);
+        return "redirect:/";
     }
+
     // 채팅방 입장 화면
-    @GetMapping("/room/enter/{roomId}")
-    public String roomDetail(Model model, @PathVariable String roomId) {
-        model.addAttribute("roomId", roomId);
-        return "/chat/roomdetail";
+    // 파라미터로 넘어오는 roomId 를 확인후 해당 roomId 를 기준으로
+    // 채팅방을 찾아서 클라이언트를 chatroom 으로 보낸다.
+    @GetMapping("/chat/room")
+    public String roomDetail(Model model, String roomId){
+
+        log.info("roomId {}", roomId);
+        model.addAttribute("room", ChatService.findRoomById(roomId));
+        return "chatroom";
     }
-    /* 
-    // 특정 채팅방 조회
-    @GetMapping("/room/{roomId}")
-    @ResponseBody
-    public ChatRoom roomInfo(@PathVariable String roomId) {
-        return chatService.findById(roomId);
-    }
-    */
+
 }

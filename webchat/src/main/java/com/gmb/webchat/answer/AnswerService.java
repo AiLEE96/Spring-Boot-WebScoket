@@ -1,6 +1,6 @@
-package com.mysite.sbb.answer;
+package com.gmb.webchat.answer;
 
-import com.mysite.sbb.question.Question;
+import com.gmb.webchat.question.Question;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

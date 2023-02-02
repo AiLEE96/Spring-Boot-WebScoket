@@ -1,4 +1,4 @@
-package webChat.config;
+package com.gmb.webchat.chat;
 
 
 import org.springframework.context.annotation.Configuration;

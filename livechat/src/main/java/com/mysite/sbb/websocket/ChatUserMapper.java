@@ -2,7 +2,8 @@ package com.mysite.sbb.websocket;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import com.mysite.sbb.user.*;
+
+import com.mysite.sbb.user.SiteUser;
 
 
 

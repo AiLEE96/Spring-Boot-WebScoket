@@ -1,6 +1,8 @@
 package com.mysite.sbb.websocket;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -12,11 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
-
-import webChat.dto.ChatRoomMap;
-import webChat.service.chatService.ChatServiceMain;
-import webChat.service.chatService.MsgChatService;
-import webChat.dto.ChatDto;
 
 import java.util.ArrayList;
 
@@ -33,7 +30,7 @@ public class ChatController {
     private final MsgChatService msgChatService;
     private final ChatServiceMain chatServiceMain;
 
-    // MessageMapping 을 통해 webSocket 로 들어오는 메시지를 발신 처리한다.
+    // MessageMapping 을 통해 webSocket로 들어오는 메시지를 발신 처리한다.
     // 이때 클라이언트에서는 /pub/chat/message 로 요청하게 되고 이것을 controller 가 받아서 처리한다.
     // 처리가 완료되면 /sub/chat/room/roomId 로 메시지가 전송된다.
     

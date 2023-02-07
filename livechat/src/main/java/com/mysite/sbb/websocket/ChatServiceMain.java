@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import webChat.dto.ChatRoomDto;
-import webChat.dto.ChatRoomMap;
-import webChat.service.fileService.FileService;
+
 
 import java.util.*;
 
@@ -20,10 +18,9 @@ import java.util.*;
 public class ChatServiceMain {
 
     private final MsgChatService msgChatService;
-    private final RtcChatService rtcChatService;
-
+    
     // 채팅방 삭제에 따른 채팅방의 사진 삭제를 위한 fileService 선언
-    private final FileService fileService;
+    // private final FileService fileService;
 
 
     // 전체 채팅방 조회
@@ -48,8 +45,6 @@ public class ChatServiceMain {
         // 채팅방 타입에 따라서 사용되는 Service 구분
         if(chatType.equals("msgChat")){
             room = msgChatService.createChatRoom(roomName, roomPwd, secretChk, maxUserCnt);
-        }else{
-            room = rtcChatService.createChatRoom(roomName, roomPwd, secretChk, maxUserCnt);
         }
 
         return room;
@@ -95,11 +90,13 @@ public class ChatServiceMain {
             // 채팅방 타입에 따라서 단순히 채팅방만 삭제할지 업로드된 파일도 삭제할지 결정
             ChatRoomMap.getInstance().getChatRooms().remove(roomId);
 
+            /*
             if (ChatRoomMap.getInstance().getChatRooms().get(roomId).getChatType().equals(ChatRoomDto.ChatType.MSG)) { // MSG 채팅방은 사진도 추가 삭제
                 // 채팅방 안에 있는 파일 삭제
                 fileService.deleteFileDir(roomId);
             }
-
+            */
+            
             log.info("삭제 완료 roomId : {}", roomId);
 
         } catch (Exception e) { // 만약에 예외 발생시 확인하기 위해서 try catch

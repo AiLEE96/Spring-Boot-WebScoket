@@ -14,7 +14,7 @@ Plain Old Java Objects(POJO)와 Bean과 관련된 모든 재사용 가능한 코
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatDto {
+public class WebChatDto {
     // 메시지  타입 : 입장, 채팅
     // 메시지 타입에 따라서 동작하는 구조가 달라진다.
     // 입장과 퇴장 ENTER 과 LEAVE 의 경우 입장/퇴장 이벤트 처리가 실행되고,
@@ -27,7 +27,7 @@ public class ChatDto {
     private String roomId; // 방 번호
     private String sender; // 채팅을 보낸 사람
     private String message; // 메시지
-    private String time; // 채팅 발송 시간간
+    private String time; // 채팅 발송 시간
 
     /* 파일 업로드 관련 변수
     private String s3DataUrl; // 파일 업로드 url

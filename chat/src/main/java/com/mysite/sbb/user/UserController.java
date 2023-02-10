@@ -54,4 +54,8 @@ public class UserController {
     public String login() {
         return "login_form";
     }
+
+    //아이디 또는 닉네임을 중복 확인하는 메소드가 필요.
+    //현재 아이디와 메소드 중 무엇이 중복 되었는지 확인이 불가능.
+    //따라서 사용자 ID 중복확인, 닉네임 중복확인이 구분되어서 존재해야함.
 }

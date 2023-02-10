@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -53,28 +54,35 @@ public class WebChatRoomController {
     // 파라미터로 넘어오는 roomId 를 확인후 해당 roomId 를 기준으로
     // 채팅방을 찾아서 클라이언트를 chatroom 으로 보낸다.
     @GetMapping("/chat/room")
-    public String roomDetail(Model model, String roomId, @AuthenticationPrincipal UserSecurityService principalDetails){
+    public String roomDetail(Model model, String roomId, Principal principalDetails){
     //roomDetail 메소드 전체적인 수정필요
-    //@AuthenticationPrincipal UserSecurityService principalDetails 해당 부분 잘못됨 꼭 수정 
-        log.info("roomId {}", roomId);
+    //@AuthenticationPrincipal UserSecurityService principalDetails 해당 부분 잘못됨 꼭 수정
+    //@AuthenticationPrincipal UserSecurityService -> Principal로 변경
 
+        log.info("roomId {}", roomId);
         // principalDetails가 null이 아니라면 로그인 된 상태
         if (principalDetails != null) {
             // 세션에서 로그인 유저 정보를 가져옴
-            model.addAttribute("user", principalDetails.getUsername());
+            model.addAttribute("user", principalDetails.getName());
         }
 
         WebChatRoomDto room = WebChatRoomMap.getInstance().getChatRooms().get(roomId);
 
         model.addAttribute("room", room);
 
-        /*
+        
         // 채팅의 타입이 화상, 문자가 아니라 오로지 문자
         // 따라서 채팅 룸을 구분해서 리턴해 줄 필요가 없다
         if (WebChatRoomDto.ChatType.MSG.equals(room.getChatType())) {
             return "chatroom";
         }
+
+        return roomId;
+        // 디폴트 리턴 값이 없어서 우선 생성한 리턴 값
+        // 리턴 값 변경, Principal 객체를 리턴 할 때
+        // 현재 로그인 정보를 반영 못할 수 있다.
         
+        /*
         else{
             String uuid = UUID.randomUUID().toString().split("-")[0];
             model.addAttribute("uuid", uuid);

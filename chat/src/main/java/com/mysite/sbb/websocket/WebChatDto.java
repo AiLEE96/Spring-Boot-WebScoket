@@ -7,9 +7,10 @@ import lombok.*;
 Plain Old Java Objects(POJO)와 Bean과 관련된 모든 재사용 가능한 코드(보일러 플레이트(boilerplate))를 생성한다.
 */
 
-/**
- * @description 변경 예정
- */
+/*
+@description 변경 예정
+*/
+
 @Data
 @Builder
 @AllArgsConstructor

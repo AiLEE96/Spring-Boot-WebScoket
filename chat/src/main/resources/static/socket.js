@@ -31,7 +31,7 @@ function connect(event) {
     username = document.querySelector('#name').value.trim();
 
     // username 중복 확인
-    isDuplicateName();
+    // isDuplicateName();
 
     // usernamePage 에 hidden 속성 추가해서 가리고
     // chatPage 를 등장시킴
@@ -71,6 +71,7 @@ function onConnected() {
 }
 
 // 유저 닉네임 중복 확인
+/*
 function isDuplicateName() {
 
     $.ajax({
@@ -88,6 +89,7 @@ function isDuplicateName() {
     })
 
 }
+*/
 
 // 유저 리스트 받기
 // ajax 로 유저 리스를 받으며 클라이언트가 입장/퇴장 했다는 문구가 나왔을 때마다 실행된다.

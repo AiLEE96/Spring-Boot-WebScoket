@@ -36,7 +36,7 @@ public class WebChatRoomController {
                              //화상, 문자로 이뤄지는 채팅 타입 미 생성, 오로지 문자 형식의 채팅만
                              RedirectAttributes rttr) {
 
-        // log.info("chk {}", secretChk);
+        log.info("chk {}", secretChk);
 
         // 매개변수 : 방 이름, 패스워드, 방 잠금 여부, 방 인원수
         WebChatRoomDto room;

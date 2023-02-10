@@ -21,13 +21,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class WebChatController {
-    // 아래에서 사용되는 convertAndSend 를 사용하기 위해서 서언
+    // 아래에서 사용되는 convertAndSend 를 사용하기 위해서 선언
     // convertAndSend 는 객체를 인자로 넘겨주면 자동으로 Message 객체로 변환 후 도착지로 전송한다.
     private final SimpMessageSendingOperations template;
     private final WebChatMsgService msgChatService;
     private final WebChatServiceMain chatServiceMain;
 
-    // MessageMapping 을 통해 webSocket 로 들어오는 메시지를 발신 처리한다.
+    // MessageMapping 을 통해 webSocket로 들어오는 메시지를 발신 처리한다.
     // 이때 클라이언트에서는 /pub/chat/message 로 요청하게 되고 이것을 controller가 받아서 처리한다.
     // 처리가 완료되면 /sub/chat/room/roomId 로 메시지가 전송된다.
     @MessageMapping("/chat/enterUser")
@@ -43,7 +43,7 @@ public class WebChatController {
         headerAccessor.getSessionAttributes().put("userUUID", userUUID);
         headerAccessor.getSessionAttributes().put("roomId", chat.getRoomId());
 
-        chat.setMessage(chat.getSender() + " 님 입장!!");
+        chat.setMessage(chat.getSender() + "님 입장!");
         template.convertAndSend("/sub/chat/room/" + chat.getRoomId(), chat);
 
     }

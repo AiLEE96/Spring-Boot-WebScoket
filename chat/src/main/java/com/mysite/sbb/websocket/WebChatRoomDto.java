@@ -26,15 +26,14 @@ public class WebChatRoomDto {
     private boolean secretChk; // 채팅방 잠금 여부
 
     
-    public enum ChatType{  // 화상 채팅, 문자 채팅
+    public enum ChatType{  // 문자 채팅, 화상 채팅 삭제
         MSG
     }
+    
     private ChatType chatType; //  채팅 타입 여부
     // 화상 채팅과 문자 채팅 선택 비 활성화, 현재 문자 채팅만 가능.
 
-    // ChatRoomDto 클래스는 하나로 가되 서비스를 나누었음
-    // public ConcurrentMap<String, ?> userList = new ConcurrentHashMap<>();
-   
+    // ChatRoomDto 클래스는 하나로 가되 서비스를 나누었다.
     public ConcurrentMap<String, ?> userList = new ConcurrentHashMap<>();
     
 }

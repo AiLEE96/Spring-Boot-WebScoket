@@ -32,7 +32,7 @@ public class WebChatRoomController {
                              @RequestParam("roomPwd") String roomPwd,
                              @RequestParam("secretChk") String secretChk,
                              @RequestParam(value = "maxUserCnt", defaultValue = "2") String maxUserCnt,
-                             //@RequestParam("chatType") String chatType,
+                             @RequestParam("chatType") String chatType,
                              //화상, 문자로 이뤄지는 채팅 타입 미 생성, 오로지 문자 형식의 채팅만
                              RedirectAttributes rttr) {
 

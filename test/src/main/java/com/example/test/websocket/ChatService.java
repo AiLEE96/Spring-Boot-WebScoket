@@ -1,15 +1,13 @@
-package com.example.test;
+package com.example.test.websocket;
 
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
 import java.util.*;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class ChatService {
 

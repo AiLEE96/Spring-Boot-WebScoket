@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.test.websocket;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

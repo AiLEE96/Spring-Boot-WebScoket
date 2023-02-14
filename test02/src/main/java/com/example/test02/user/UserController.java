@@ -1,4 +1,4 @@
-package com.example.test.user;
+package com.example.test02.user;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;

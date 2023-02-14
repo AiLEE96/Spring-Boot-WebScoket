@@ -1,4 +1,4 @@
-package com.example.test.websocket;
+package com.example.test02.chat;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,16 +8,18 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ChatRoom {
-
+public class ChatRoomDto {
     private String roomId;
     private String roomName;
 
-
-    public static ChatRoom create(String name) {
-        ChatRoom room = new ChatRoom();
+    public static ChatRoomDto create(String name) {
+        ChatRoomDto room = new ChatRoomDto();
         room.roomId = UUID.randomUUID().toString();
         room.roomName = name;
         return room;
     }
+
+    //룸 아이디, 룸 네임.
+    //룸 아이디를 임의로 부여해서 방을 생성.
+    
 }

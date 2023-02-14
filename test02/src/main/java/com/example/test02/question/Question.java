@@ -1,9 +1,9 @@
-package com.example.test.question;
+package com.example.test02.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.example.test.answer.Answer;
+import com.example.test02.answer.Answer;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

@@ -1,4 +1,4 @@
-package com.example.test.question;
+package com.example.test02.question;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.test.answer.AnswerForm;
+import com.example.test02.answer.AnswerForm;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

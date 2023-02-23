@@ -63,13 +63,28 @@
             this.roomId = localStorage.getItem('wschat.roomId');
             this.sender = localStorage.getItem('wschat.sender');
             this.findRoom();
+            var _this = this;
+                axios.get('/chat/user').then(response => {
+                    _this.token = response.data.token;
+                    ws.connect({"token":_this.token}, function(frame) {
+                        ws.subscribe("/topic/chat/room/"+_this.roomId, function(message) {
+                            var recv = JSON.parse(message.body);
+                            _this.recvMessage(recv);
+                        });
+                        _this.sendMessage('ENTER');
+                    }, function(error) {
+                        alert("서버 연결에 실패 하였습니다. 다시 접속해 주십시요.");
+                        location.href="/chat/room";
+                    });
+                });
+            
         },
         methods: {
             findRoom: function() {
                 axios.get('/chat/room/'+this.roomId).then(response => { this.room = response.data; });
             },
             sendMessage: function() {
-                ws.send("/app/chat/message", {}, JSON.stringify({type:'TALK', roomId:this.roomId, sender:this.sender, message:this.message}));
+                ws.send("/app/chat/message", {"token":this.token}, JSON.stringify({type:'TALK', roomId:this.roomId, sender:this.sender, message:this.message}));
                 this.message = '';
             },
             recvMessage: function(recv) {

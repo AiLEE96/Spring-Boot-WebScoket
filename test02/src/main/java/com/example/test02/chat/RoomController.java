@@ -2,6 +2,8 @@ package com.example.test02.chat;
 
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +13,10 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/chat")
-public class ChatRoomController {
+public class RoomController {
     
     private final ChatService chatService;
+    private final TokenProvider jwtTokenProvider;
 
     // 채팅 리스트 화면
     @GetMapping("/room")
@@ -23,13 +26,13 @@ public class ChatRoomController {
     // 모든 채팅방 목록 반환
     @GetMapping("/rooms")
     @ResponseBody
-    public List<ChatRoomDto> room() {
+    public List<RoomDto> room() {
         return chatService.findAllRoom();
     }
     // 채팅방 생성
     @PostMapping("/room")
     @ResponseBody
-    public ChatRoomDto createRoom(@RequestParam String name) {
+    public RoomDto createRoom(@RequestParam String name) {
         return chatService.createRoom(name);
     }
     // 채팅방 입장 화면
@@ -41,7 +44,16 @@ public class ChatRoomController {
     // 특정 채팅방 조회
     @GetMapping("/room/{roomId}")
     @ResponseBody
-    public ChatRoomDto roomInfo(@PathVariable String roomId) {
+    public RoomDto roomInfo(@PathVariable String roomId) {
         return chatService.findById(roomId);
+    }
+
+    // 로그인한 유저를 대상으로 토큰 발급 및 조회
+    @GetMapping("/user")
+    @ResponseBody
+    public LoginInfo getUserInfo() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        return LoginInfo.builder().name(name).token(jwtTokenProvider.generateToken(name)).build();
     }
 }

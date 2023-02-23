@@ -8,12 +8,12 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ChatRoomDto {
+public class RoomDto {
     private String roomId;
     private String roomName;
 
-    public static ChatRoomDto create(String name) {
-        ChatRoomDto room = new ChatRoomDto();
+    public static RoomDto create(String name) {
+        RoomDto room = new RoomDto();
         room.roomId = UUID.randomUUID().toString();
         room.roomName = name;
         return room;

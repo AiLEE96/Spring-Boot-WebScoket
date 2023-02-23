@@ -13,9 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class ChatStompHandler implements ChannelInterceptor {
+public class WebChatStompHandler implements ChannelInterceptor {
 
-    private final ChatTokenProvider jwtTokenProvider;
+    private final TokenProvider jwtTokenProvider;
 
     // websocket을 통해 들어온 요청이 처리 되기전 실행된다.
     @Override

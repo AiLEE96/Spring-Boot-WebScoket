@@ -1,4 +1,5 @@
 package com.websocket.chat.service;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

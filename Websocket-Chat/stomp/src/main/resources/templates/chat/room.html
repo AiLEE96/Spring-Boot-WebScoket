@@ -70,9 +70,9 @@
                     axios.post('/chat/room', params.toString())
                         .then(
                             response => {
-                                alert(response.data.name + "방 개설에 성공하였습니다. Check = " + checks)
+                                alert(response.data.roomName + "방 개설에 성공하였습니다. Check = " + checks)
                                 this.room_name = '';
-                                this.findAllRoom();
+                                this.chatrooms.push(response.data);
                             }
                         )
                         .catch( response => { alert("채팅방 개설에 실패하였습니다."); } );
